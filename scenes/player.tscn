@@ -42,15 +42,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js2kk"]
-size = Vector2(14, 52)
+size = Vector2(14, 46)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_in71c")
 animation = &"idle"
-frame_progress = 0.0518282
+frame_progress = 0.165449
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 13)
+position = Vector2(-2, 16)
 shape = SubResource("RectangleShape2D_js2kk")
