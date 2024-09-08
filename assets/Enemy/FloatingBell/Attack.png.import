@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvkr0bpl5xpi8"
-path="res://.godot/imported/Houses_AssetSheet.png-069bf372df7ba2ecc5edb19e5c4f9a35.ctex"
+uid="uid://k1mga3c5h0r0"
+path="res://.godot/imported/Attack.png-6295ca90a34c6292e82bb03774bc1ce6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MapTiles/Houses_AssetSheet.png"
-dest_files=["res://.godot/imported/Houses_AssetSheet.png-069bf372df7ba2ecc5edb19e5c4f9a35.ctex"]
+source_file="res://assets/MapTiles/FloatingBell/Attack.png"
+dest_files=["res://.godot/imported/Attack.png-6295ca90a34c6292e82bb03774bc1ce6.ctex"]
 
 [params]
 

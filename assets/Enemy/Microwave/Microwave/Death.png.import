@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crmfaphmci771"
-path="res://.godot/imported/spritesheet2.png-2b9cad6d2602491f0d2e4f7824cfbaa3.ctex"
+uid="uid://b0aq0g3wl4a3j"
+path="res://.godot/imported/Death.png-bf20a3b6d06e886b40453bc0879fdc25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MapTiles/spritesheet2.png"
-dest_files=["res://.godot/imported/spritesheet2.png-2b9cad6d2602491f0d2e4f7824cfbaa3.ctex"]
+source_file="res://assets/MapTiles/Microwave/Microwave/Death.png"
+dest_files=["res://.godot/imported/Death.png-bf20a3b6d06e886b40453bc0879fdc25.ctex"]
 
 [params]
 

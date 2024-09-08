@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dho14c54yowuu"
-path="res://.godot/imported/spritesheet3.png-5c77746e7c8c89405d231196782d4853.ctex"
+uid="uid://co43e0mi3bwgt"
+path="res://.godot/imported/Walk.png-314e4ee3f8afc93e23402c8ee11d9096.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MapTiles/spritesheet3.png"
-dest_files=["res://.godot/imported/spritesheet3.png-5c77746e7c8c89405d231196782d4853.ctex"]
+source_file="res://assets/MapTiles/FloatingBell/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-314e4ee3f8afc93e23402c8ee11d9096.ctex"]
 
 [params]
 
