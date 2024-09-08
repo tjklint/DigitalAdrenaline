@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://juxsdodmhso6"
-path="res://.godot/imported/cop1.png-044737f8e7c658caeaa7364a778fa06d.ctex"
+path="res://.godot/imported/cop1.png-40e478de3e7c589b23d31bb63f60d291.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cop/idle/cop1.png"
-dest_files=["res://.godot/imported/cop1.png-044737f8e7c658caeaa7364a778fa06d.ctex"]
+source_file="res://assets/Enemy/Robocop/idle/cop1.png"
+dest_files=["res://.godot/imported/cop1.png-40e478de3e7c589b23d31bb63f60d291.ctex"]
 
 [params]
 

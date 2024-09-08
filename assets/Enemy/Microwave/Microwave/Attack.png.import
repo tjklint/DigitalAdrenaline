@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctoy1wx14hcsq"
-path="res://.godot/imported/Attack.png-65afde77fa405f78ddf0567328123a5f.ctex"
+path="res://.godot/imported/Attack.png-1c4e74d99c4ad612ccb4f71a7b980aee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MapTiles/Microwave/Microwave/Attack.png"
-dest_files=["res://.godot/imported/Attack.png-65afde77fa405f78ddf0567328123a5f.ctex"]
+source_file="res://assets/Enemy/Microwave/Microwave/Attack.png"
+dest_files=["res://.godot/imported/Attack.png-1c4e74d99c4ad612ccb4f71a7b980aee.ctex"]
 
 [params]
 

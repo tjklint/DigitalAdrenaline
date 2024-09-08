@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0aq0g3wl4a3j"
-path="res://.godot/imported/Death.png-bf20a3b6d06e886b40453bc0879fdc25.ctex"
+path="res://.godot/imported/Death.png-d9f3ccdc38e1bc043e2cdbe603900869.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MapTiles/Microwave/Microwave/Death.png"
-dest_files=["res://.godot/imported/Death.png-bf20a3b6d06e886b40453bc0879fdc25.ctex"]
+source_file="res://assets/Enemy/Microwave/Microwave/Death.png"
+dest_files=["res://.godot/imported/Death.png-d9f3ccdc38e1bc043e2cdbe603900869.ctex"]
 
 [params]
 

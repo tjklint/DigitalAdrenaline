@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d23bbxc4wldte"
-path="res://.godot/imported/Hit.png-d47684d729b2b43653f0935d45a19eb7.ctex"
+path="res://.godot/imported/Hit.png-23dd2d7a9b93df5dbd6d96a98bc01fcb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MapTiles/Microwave/Microwave/Hit.png"
-dest_files=["res://.godot/imported/Hit.png-d47684d729b2b43653f0935d45a19eb7.ctex"]
+source_file="res://assets/Enemy/Microwave/Microwave/Hit.png"
+dest_files=["res://.godot/imported/Hit.png-23dd2d7a9b93df5dbd6d96a98bc01fcb.ctex"]
 
 [params]
 

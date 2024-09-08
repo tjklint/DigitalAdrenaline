@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqdxikx5kac50"
-path="res://.godot/imported/enemy-shoot1.png-5d1da713cf732bab0222539635b1836b.ctex"
+path="res://.godot/imported/enemy-shoot1.png-d41671c3b0cd44def89daf158333d1ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy-shoot/enemy-shoot1.png"
-dest_files=["res://.godot/imported/enemy-shoot1.png-5d1da713cf732bab0222539635b1836b.ctex"]
+source_file="res://assets/Enemy/BlueBulletProjectile/enemy-shoot1.png"
+dest_files=["res://.godot/imported/enemy-shoot1.png-d41671c3b0cd44def89daf158333d1ad.ctex"]
 
 [params]
 

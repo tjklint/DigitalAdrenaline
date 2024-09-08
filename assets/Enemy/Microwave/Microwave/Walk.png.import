@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ljn6yjvo64jo"
-path="res://.godot/imported/Walk.png-b0f43975e915c68729c93ebedecd02b7.ctex"
+path="res://.godot/imported/Walk.png-7b826abbb23bf0d4450cd134391a6177.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MapTiles/Microwave/Microwave/Walk.png"
-dest_files=["res://.godot/imported/Walk.png-b0f43975e915c68729c93ebedecd02b7.ctex"]
+source_file="res://assets/Enemy/Microwave/Microwave/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-7b826abbb23bf0d4450cd134391a6177.ctex"]
 
 [params]
 
