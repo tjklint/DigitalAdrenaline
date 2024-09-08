@@ -28,10 +28,10 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		if direction == 0:
 			animated_sprite.play("idle")
-		#else:
-			#animated_sprite.play("run")
-	#else:
-		#animated_sprite.play("jump")
+		else:
+			animated_sprite.play("run")
+	else:
+		animated_sprite.play("jump")
 	
 	# Apply movement to character.
 	if direction:
