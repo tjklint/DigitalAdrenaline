@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvas037kxv877"
-path="res://.godot/imported/PipesAndBoxes_AssetSheet.png-31edf13f193dcf49ba9170e245435d03.ctex"
+uid="uid://f5mtmknn7h2e"
+path="res://.godot/imported/Buildings.png-f4bdcf01905f863b4dda88bed3921c8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripts/PipesAndBoxes_AssetSheet.png"
-dest_files=["res://.godot/imported/PipesAndBoxes_AssetSheet.png-31edf13f193dcf49ba9170e245435d03.ctex"]
+source_file="res://assets/MapTiles/Buildings.png"
+dest_files=["res://.godot/imported/Buildings.png-f4bdcf01905f863b4dda88bed3921c8d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://puhffl3p6ycd"
-path="res://.godot/imported/Robots_AnimationSheet.png-d3a680a29b894fc67b1ab4065f6810a9.ctex"
+uid="uid://c0kr8g4lefk63"
+path="res://.godot/imported/wallpaper.jpg-64198c56b86cc5eae4f10c333a991739.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripts/Robots_AnimationSheet.png"
-dest_files=["res://.godot/imported/Robots_AnimationSheet.png-d3a680a29b894fc67b1ab4065f6810a9.ctex"]
+source_file="res://assets/MapTiles/wallpaper.jpg"
+dest_files=["res://.godot/imported/wallpaper.jpg-64198c56b86cc5eae4f10c333a991739.ctex"]
 
 [params]
 
