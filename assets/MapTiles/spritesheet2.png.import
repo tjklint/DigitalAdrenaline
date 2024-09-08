@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc37yj5fjgl55"
-path="res://.godot/imported/GlowingSign_AnimationSheet.png-a53a9a3bc0a8e4a24091b55189ae935d.ctex"
+uid="uid://crmfaphmci771"
+path="res://.godot/imported/spritesheet2.png-2b9cad6d2602491f0d2e4f7824cfbaa3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripts/GlowingSign_AnimationSheet.png"
-dest_files=["res://.godot/imported/GlowingSign_AnimationSheet.png-a53a9a3bc0a8e4a24091b55189ae935d.ctex"]
+source_file="res://assets/MapTiles/spritesheet2.png"
+dest_files=["res://.godot/imported/spritesheet2.png-2b9cad6d2602491f0d2e4f7824cfbaa3.ctex"]
 
 [params]
 

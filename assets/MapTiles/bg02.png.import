@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c54qpb5coiw80"
-path="res://.godot/imported/PlatformsAndLadders_AssetSheet.png-d574670fbae62072bfa81630224a0247.ctex"
+uid="uid://drcm23ecpbpll"
+path="res://.godot/imported/bg02.png-a5b9eb5e803db0dab0549524d83d6f2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripts/PlatformsAndLadders_AssetSheet.png"
-dest_files=["res://.godot/imported/PlatformsAndLadders_AssetSheet.png-d574670fbae62072bfa81630224a0247.ctex"]
+source_file="res://assets/MapTiles/bg02.png"
+dest_files=["res://.godot/imported/bg02.png-a5b9eb5e803db0dab0549524d83d6f2e.ctex"]
 
 [params]
 
