@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caspc5ioa6jj6"
-path="res://.godot/imported/spritesheet.png-8080a33cf2f2ec0ea2223bc04c4a9866.ctex"
+uid="uid://butr5l1nmgrve"
+path="res://.godot/imported/Death.png-c4a430e6af403168ecd271e186bd0f9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MapTiles/spritesheet.png"
-dest_files=["res://.godot/imported/spritesheet.png-8080a33cf2f2ec0ea2223bc04c4a9866.ctex"]
+source_file="res://assets/MapTiles/FloatingBell/Death.png"
+dest_files=["res://.godot/imported/Death.png-c4a430e6af403168ecd271e186bd0f9f.ctex"]
 
 [params]
 
