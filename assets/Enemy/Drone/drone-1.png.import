@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpnjct2qru8rm"
-path="res://.godot/imported/drone-1.png-88fc68ddbd2e48a6a7c2c5b319f6eac2.ctex"
+path="res://.godot/imported/drone-1.png-2a4a46cdc4017f68fcfb2486252b80c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MapTiles/drone/drone-1.png"
-dest_files=["res://.godot/imported/drone-1.png-88fc68ddbd2e48a6a7c2c5b319f6eac2.ctex"]
+source_file="res://assets/Enemy/Drone/drone-1.png"
+dest_files=["res://.godot/imported/drone-1.png-2a4a46cdc4017f68fcfb2486252b80c4.ctex"]
 
 [params]
 

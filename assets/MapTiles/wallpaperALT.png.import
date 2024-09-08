@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy8iw153pcgb8"
-path="res://.godot/imported/shoot3.png-491fb296d4e4ecfa8f74bcd7d75235ef.ctex"
+uid="uid://b02y7842cpu8u"
+path="res://.godot/imported/wallpaperALT.png-b347bc6ae2f0085f25fea0f3426f5666.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/EggTurret/Shoot/shoot3.png"
-dest_files=["res://.godot/imported/shoot3.png-491fb296d4e4ecfa8f74bcd7d75235ef.ctex"]
+source_file="res://assets/MapTiles/wallpaperALT.png"
+dest_files=["res://.godot/imported/wallpaperALT.png-b347bc6ae2f0085f25fea0f3426f5666.ctex"]
 
 [params]
 

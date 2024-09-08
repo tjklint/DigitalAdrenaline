@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jqjm5jc81m1e"
-path="res://.godot/imported/shoot4.png-c4358b14a3aa3034c4fe44c79c9a7fd3.ctex"
+path="res://.godot/imported/shoot4.png-0f4a673278736de0efcd027e16d0b0e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/egg turret/Shoot/shoot4.png"
-dest_files=["res://.godot/imported/shoot4.png-c4358b14a3aa3034c4fe44c79c9a7fd3.ctex"]
+source_file="res://assets/Enemy/EggTurret/Shoot/shoot4.png"
+dest_files=["res://.godot/imported/shoot4.png-0f4a673278736de0efcd027e16d0b0e5.ctex"]
 
 [params]
 
