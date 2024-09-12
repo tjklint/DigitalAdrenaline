@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://djxt2b2tln4k5"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
