@@ -247,7 +247,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"shoot",
-"speed": 8.0
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js2kk"]
@@ -257,9 +257,7 @@ size = Vector2(13, 52)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_in71c")
-animation = &"jump"
-frame = 6
-frame_progress = 1.0
+animation = &"shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 15)
@@ -267,5 +265,5 @@ shape = SubResource("RectangleShape2D_js2kk")
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Marker2D" type="Marker2D" parent="Node2D"]
-position = Vector2(18, 7)
+[node name="GunMarker2D" type="Marker2D" parent="Node2D"]
+position = Vector2(31, -4)
