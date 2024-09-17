@@ -7,8 +7,13 @@ const PROTAG_BULLET = preload("res://scenes/ProtagBullet.tscn")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var marker: Marker2D = $Node2D/Marker2D
 
+var is_shooting = false
+
+func _ready():
+	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
+
 func _process(delta):
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and not is_shooting:
 		shoot()
 
 func _physics_process(delta: float) -> void:
@@ -31,14 +36,15 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = true
 		marker.position.x = -abs(marker.position.x)  # Move Marker2D to the left side
 
-	# Animations
-	if is_on_floor():
-		if direction == 0:
-			animated_sprite.play("idle")
+	# Only play movement animations if not shooting
+	if not is_shooting:
+		if is_on_floor():
+			if direction == 0:
+				animated_sprite.play("idle")
+			else:
+				animated_sprite.play("run")
 		else:
-			animated_sprite.play("run")
-	else:
-		animated_sprite.play("jump")
+			animated_sprite.play("jump")
 	
 	# Apply movement to character.
 	if direction:
@@ -49,6 +55,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func shoot():
+	is_shooting = true
+	animated_sprite.play("shoot")  # Play shooting animation
+
+	# Create and shoot the bullet
 	var bullet = PROTAG_BULLET.instantiate()
 	get_parent().add_child(bullet)
 	
@@ -57,8 +67,11 @@ func shoot():
 
 	# Set bullet velocity based on player facing direction
 	if animated_sprite.flip_h:
-		# Player is facing left
-		bullet.bullet_velocity = Vector2(-1, 0)
+		bullet.bullet_velocity = Vector2(-1, 0)  # Player facing left
 	else:
-		# Player is facing right
-		bullet.bullet_velocity = Vector2(1, 0)
+		bullet.bullet_velocity = Vector2(1, 0)  # Player facing right
+
+func _on_animation_finished():
+	# Check if the shoot animation finished and reset is_shooting
+	if animated_sprite.animation == "shoot":
+		is_shooting = false
