@@ -14,8 +14,8 @@ func _ready():
 	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
 func _process(delta):
-	# Handle shooting, only if not currently shooting and on the floor
-	if Input.is_action_just_pressed("shoot") and is_on_floor() and not is_shooting:
+	# Handle shooting - bullets can be fired during both jump and ground, but only play shooting animation on the ground
+	if Input.is_action_just_pressed("shoot"):
 		shoot()
 
 func _physics_process(delta: float) -> void:
@@ -26,7 +26,6 @@ func _physics_process(delta: float) -> void:
 	# Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		is_shooting = false  # Interrupt shooting if jump is triggered
 
 	# Get the input direction, -1, 0, 1
 	var direction := Input.get_axis("move_left", "move_right")
@@ -58,10 +57,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func shoot():
-	is_shooting = true  # Set shooting state
-	animated_sprite.play("shoot")  # Play shooting animation
-	
-	# Create and shoot the bullet
+	# Only play shooting animation if on the ground
+	if is_on_floor():
+		is_shooting = true
+		animated_sprite.play("shoot")
+
+	# Create and shoot the bullet regardless of being on the ground or jumping
 	var bullet = PROTAG_BULLET.instantiate()
 	get_parent().add_child(bullet)
 	
