@@ -264,3 +264,6 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 15)
 shape = SubResource("RectangleShape2D_js2kk")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(18, 7)
