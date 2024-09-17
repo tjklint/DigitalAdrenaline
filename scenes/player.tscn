@@ -265,5 +265,7 @@ frame_progress = 1.0
 position = Vector2(-2.5, 15)
 shape = SubResource("RectangleShape2D_js2kk")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
 position = Vector2(18, 7)

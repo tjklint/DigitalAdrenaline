@@ -1,18 +1,18 @@
 extends CharacterBody2D
 
-
 const SPEED = 139.0
 const JUMP_VELOCITY = -400.0
-
 const PROTAG_BULLET = preload("res://scenes/ProtagBullet.tscn")
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var marker: Marker2D = $Node2D/Marker2D
 
 func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# Add gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -23,12 +23,14 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction, -1, 0, 1
 	var direction := Input.get_axis("move_left", "move_right")
 	
-	# Flip the sprite according to direction.
+	# Flip the sprite according to direction and adjust marker position.
 	if direction > 0:
 		animated_sprite.flip_h = false
+		marker.position.x = abs(marker.position.x)  # Ensure Marker2D is on the right side
 	elif direction < 0:
 		animated_sprite.flip_h = true
-		
+		marker.position.x = -abs(marker.position.x)  # Move Marker2D to the left side
+
 	# Animations
 	if is_on_floor():
 		if direction == 0:
@@ -45,9 +47,18 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-	
+
 func shoot():
 	var bullet = PROTAG_BULLET.instantiate()
-	
 	get_parent().add_child(bullet)
-	bullet.position = $Marker2D.global_position
+	
+	# Set bullet position based on current marker position
+	bullet.position = marker.global_position
+
+	# Set bullet velocity based on player facing direction
+	if animated_sprite.flip_h:
+		# Player is facing left
+		bullet.bullet_velocity = Vector2(-1, 0)
+	else:
+		# Player is facing right
+		bullet.bullet_velocity = Vector2(1, 0)
