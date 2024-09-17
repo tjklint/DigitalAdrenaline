@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -400.0
 const PROTAG_BULLET = preload("res://scenes/ProtagBullet.tscn")
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var marker: Marker2D = $Node2D/Marker2D
+@onready var gun_marker: Marker2D = $Node2D/GunMarker2D  # This is where the bullet will spawn (at the gun's position)
 
 var is_shooting = false
 
@@ -33,10 +33,10 @@ func _physics_process(delta: float) -> void:
 	# Flip the sprite according to direction and adjust marker position
 	if direction > 0:
 		animated_sprite.flip_h = false
-		marker.position.x = abs(marker.position.x)  # Ensure Marker2D is on the right side
+		gun_marker.position.x = abs(gun_marker.position.x)  # Ensure GunMarker2D is on the right side
 	elif direction < 0:
 		animated_sprite.flip_h = true
-		marker.position.x = -abs(marker.position.x)  # Move Marker2D to the left side
+		gun_marker.position.x = -abs(gun_marker.position.x)  # Move GunMarker2D to the left side
 
 	# Animations - Only play idle or running if not shooting
 	if not is_shooting:
@@ -66,8 +66,8 @@ func shoot():
 	var bullet = PROTAG_BULLET.instantiate()
 	get_parent().add_child(bullet)
 	
-	# Set bullet position based on current marker position
-	bullet.position = marker.global_position
+	# Set bullet position based on gun_marker's position
+	bullet.position = gun_marker.global_position
 
 	# Set bullet velocity based on player facing direction
 	if animated_sprite.flip_h:
