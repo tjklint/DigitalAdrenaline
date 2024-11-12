@@ -2,17 +2,23 @@ extends CharacterBody2D
 
 var bullet_velocity = Vector2(1, 0)
 var speed = 300
-var has_bounced = false  # Tracks if the bullet has already bounced
+var has_bounced = false  
+var returning = false
+
+@export var return_range = 200.0
+var player: CharacterBody2D
 
 func _physics_process(delta: float) -> void:
-	# Move the bullet and check for collision
-	var collision_info = move_and_collide(bullet_velocity.normalized() * delta * speed)
+	if returning and player:		
+		bullet_velocity = (player.global_position - global_position).normalized()
+	else: 
+		velocity = bullet_velocity.normalized() * speed
 	
-	if collision_info:
-		if not has_bounced:
-			# Reverse bullet's velocity for a bounce
-			bullet_velocity = -bullet_velocity
-			has_bounced = true  # Set the bounce flag so it only bounces once
-		else:
-			# If it has already bounced once, destroy the bullet
+	move_and_slide()
+	
+	if is_on_floor() or is_on_wall():
+		if has_bounced:
 			queue_free()
+		else: 
+			bullet_velocity = -bullet_velocity
+			has_bounced = true
