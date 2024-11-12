@@ -10,6 +10,7 @@ const MAGAZINE_SIZE = 10
 @onready var gun_marker: Marker2D = $Node2D/GunMarker2D 
 
 var is_shooting = false
+var is_retrieving = false
 var bullets_remaining = MAGAZINE_SIZE
 
 func _ready():
@@ -25,39 +26,40 @@ func _process(delta):
 
 func _physics_process(delta: float) -> void:
 	# Add gravity
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if not is_retrieving:
+		if not is_on_floor():
+			velocity += get_gravity() * delta
 
-	# Handle jump
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		# Handle jump
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
 
-	# Get the input direction, -1, 0, 1
-	var direction := Input.get_axis("move_left", "move_right")
-	
-	# Flip the sprite according to direction and adjust marker position
-	if direction > 0:
-		animated_sprite.flip_h = false
-		gun_marker.position.x = abs(gun_marker.position.x)  # Ensure GunMarker2D is on the right side
-	elif direction < 0:
-		animated_sprite.flip_h = true
-		gun_marker.position.x = -abs(gun_marker.position.x)  # Move GunMarker2D to the left side
+		# Get the input direction, -1, 0, 1
+		var direction := Input.get_axis("move_left", "move_right")
+		
+		# Flip the sprite according to direction and adjust marker position
+		if direction > 0:
+			animated_sprite.flip_h = false
+			gun_marker.position.x = abs(gun_marker.position.x)  # Ensure GunMarker2D is on the right side
+		elif direction < 0:
+			animated_sprite.flip_h = true
+			gun_marker.position.x = -abs(gun_marker.position.x)  # Move GunMarker2D to the left side
 
-	# Animations - Only play idle or running if not shooting
-	if not is_shooting:
-		if is_on_floor():
-			if direction == 0:
-				animated_sprite.play("idle")
+		# Animations - Only play idle or running if not shooting
+		if not is_shooting:
+			if is_on_floor():
+				if direction == 0:
+					animated_sprite.play("idle")
+				else:
+					animated_sprite.play("run")
 			else:
-				animated_sprite.play("run")
+				animated_sprite.play("jump")
+		
+		# Apply movement to character
+		if direction:
+			velocity.x = direction * SPEED
 		else:
-			animated_sprite.play("jump")
-	
-	# Apply movement to character
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 
@@ -92,25 +94,31 @@ func try_retrieve_bullet():
 	print("try_retrieve_bullet() called") 
 	
 	for bullet in get_tree().get_nodes_in_group("Bullets"):
-		print("Found bullet:", bullet)
 		# Check if `bullet` has the `returning` property before accessing it
 		if bullet.has_method("get") and bullet.get("returning") == false:
-			print("Bullet is eligible for retrieval")
 			if bullet.global_position.distance_to(global_position) < bullet.return_range:
-				print("Bullet in range for retrieval:", bullet.get_path())
 				bullet.returning = true
+				is_retrieving = true
 				animated_sprite.play_backwards("shoot")
-				on_bullet_returned()
+				
+				# Queue the bullet for deletion as soon as it's retrieved:
+				bullet.queue_free()
+				
 				return  # Retrieve only one bullet at a time
 
 				
 func on_bullet_returned():
 	bullets_remaining += 1
 	is_shooting = false
+	is_retrieving = false
 	animated_sprite.play("idle")
 	print("Bullets remaining after retrieval:", bullets_remaining)
 	
 func _on_animation_finished():
 	# Reset shooting state when the shoot animation finishes
 	if animated_sprite.animation == "shoot":
-		is_shooting = false
+		if is_retrieving:
+			on_bullet_returned()
+		else: 
+			is_shooting = false
+			animated_sprite.play("idle")

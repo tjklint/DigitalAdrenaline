@@ -5,7 +5,7 @@ var speed = 300
 var has_bounced = false  
 var returning = false
 
-@export var return_range = 200.0
+@export var return_range = 50.0
 var player: CharacterBody2D
 
 func _physics_process(delta: float) -> void:
