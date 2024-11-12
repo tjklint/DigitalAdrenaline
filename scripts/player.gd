@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -400.0
 const PROTAG_BULLET = preload("res://scenes/ProtagBullet.tscn")
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var gun_marker: Marker2D = $Node2D/GunMarker2D  # This is where the bullet will spawn (at the gun's position)
+@onready var gun_marker: Marker2D = $Node2D/GunMarker2D 
 
 var is_shooting = false
 
