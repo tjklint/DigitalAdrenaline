@@ -47,3 +47,5 @@ frame_progress = 0.43479
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_hl2js")
+
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

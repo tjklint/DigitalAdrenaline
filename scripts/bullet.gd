@@ -1,13 +1,16 @@
 extends CharacterBody2D
 
 var bullet_velocity = Vector2(1, 0)
-var speed = 400
+var speed = 300
 var has_bounced = false  
 var returning = false
 
-@export var return_range = 0.0
+@export var return_range = 75.0
 var player: CharacterBody2D
 
+#func _ready():
+#	$Killzone.connect("body_entered", Callable(self, "_on_killzone_entered"))
+	
 func _physics_process(delta: float) -> void:
 	if returning and player:		
 		bullet_velocity = (player.global_position - global_position).normalized()
@@ -22,3 +25,4 @@ func _physics_process(delta: float) -> void:
 		else: 
 			bullet_velocity = -bullet_velocity
 			has_bounced = true
+			
