@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 var bullet_velocity = Vector2(1, 0)
-var speed = 300
+var speed = 400
 var has_bounced = false  
 var returning = false
 
-@export var return_range = 50.0
+@export var return_range = 0.0
 var player: CharacterBody2D
 
 func _physics_process(delta: float) -> void:
