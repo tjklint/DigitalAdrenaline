@@ -253,7 +253,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js2kk"]
 size = Vector2(13, 52)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

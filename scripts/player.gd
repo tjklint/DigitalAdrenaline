@@ -101,10 +101,9 @@ func try_retrieve_bullet():
 				is_retrieving = true
 				animated_sprite.play_backwards("shoot")
 				
-				# Queue the bullet for deletion as soon as it's retrieved:
 				bullet.queue_free()
 				
-				return  # Retrieve only one bullet at a time
+				return  
 
 				
 func on_bullet_returned():

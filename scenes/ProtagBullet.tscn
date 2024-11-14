@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbi4iq0ggucyk"]
+[gd_scene load_steps=9 format=3 uid="uid://bbi4iq0ggucyk"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_6tms4"]
 [ext_resource type="Texture2D" uid="uid://dqdxikx5kac50" path="res://assets/Enemy/BlueBulletProjectile/enemy-shoot1.png" id="1_wrgpd"]
 [ext_resource type="Texture2D" uid="uid://3llsnchhvj63" path="res://assets/Enemy/BlueBulletProjectile/enemy-shoot2.png" id="2_io4qq"]
 [ext_resource type="Texture2D" uid="uid://bw2y303tmurto" path="res://assets/Enemy/BlueBulletProjectile/enemy-shoot3.png" id="3_ugtei"]
+[ext_resource type="PackedScene" uid="uid://djxt2b2tln4k5" path="res://scenes/killzone.tscn" id="5_g80of"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yndi"]
 size = Vector2(5, 5)
@@ -25,6 +26,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hl2js"]
+size = Vector2(5, 5)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_6tms4")
 
@@ -37,3 +41,11 @@ sprite_frames = SubResource("SpriteFrames_supxb")
 frame_progress = 0.43479
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Killzone" parent="." instance=ExtResource("5_g80of")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_hl2js")
+
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
