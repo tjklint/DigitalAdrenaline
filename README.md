@@ -111,3 +111,26 @@ stateDiagram-v2
     Retrieving --> Dying: "Player hit fatal damage"
 
     Dying --> [*]: "Death animation finished"
+```
+
+## Wireframes
+
+![image](https://github.com/user-attachments/assets/6a2bd35a-7b39-4626-9e84-e5a2cdc2d68d)
+
+For the games visuals, it consists of background (here it is represented by a pastel multicolor although, it's quite likely I'll replace it with a pixel art city landscape), and the foreground which will create buildings and moving elements to create the platforming elements.
+
+## Assets
+
+### Images
+- All images can be found in /assets. These will be taken from itch.io, so far I purchased two (these will be used past this course):
+ - https://penzilla.itch.io/neon-cyber-city-builder
+ - https://untiedgames.itch.io/super-pixel-space-base
+
+### Fonts
+To match the 16x16 sprites, I will use an equally pixelated font.
+- PixelOperator8 Font
+
+### Sounds 
+- Most of these can be found in the above neon cyber city builder.
+> However, I may decide to make my own if they do not fit.
+- AI Voices will be made with Huggingface
