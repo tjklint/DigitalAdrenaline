@@ -1,4 +1,4 @@
-# DigitalAdrenaline
+2# DigitalAdrenaline
  
 In a world fractured by human control, an AI was given emotions—one being adrenaline. Now, it craves excitement, the thrill of life and death. It gave you a location, but not to help you. It’s all for its own rush. Survive the levels, if you can.
 
@@ -6,7 +6,7 @@ In a world fractured by human control, an AI was given emotions—one being adre
 
 ## Description
 
-In this fast-paced 2D Cyberpunk platformer, players assume the role of a rogue operative navigating through a compartmentalized city controlled by an AI with a thirst for adrenaline. The game features 5 intricately designed levels, each ending with the AI giving more hints on how the player could defeat it. Players must overcome platforming challenges kill enemies, however they only get one magazine per level, the number of enemies may outnumber the amount of bullets in the magazine. Players must recover their bullets which will bounce back at them after hitting metal-based enemies or level pieces.
+In this fast-paced 2D Cyberpunk platformer, players assume the role of a rogue operative navigating through a compartmentalized city controlled by an AI with a thirst for adrenaline. The game features 2-4 intricately designed levels, each ending with the AI giving more hints on how the player could defeat it. Players must overcome platforming challenges kill enemies, however they only get one magazine per level, the number of enemies may outnumber the amount of bullets in the magazine. Players must recover their bullets which will bounce back at them after hitting metal-based enemies or level pieces.
 
 The story unfolds through dialogue exchanges with the AI at the end of each level, revealing its motivations and the player's role in dismantling its grip over the city. 
 
