@@ -1,4 +1,4 @@
-2# DigitalAdrenaline
+# DigitalAdrenaline
  
 In a world fractured by human control, an AI was given emotions—one being adrenaline. Now, it craves excitement, the thrill of life and death. It gave you a location, but not to help you. It’s all for its own rush. Survive the levels, if you can.
 
@@ -109,6 +109,65 @@ stateDiagram-v2
     Retrieving --> Dying: "Player hit fatal damage"
 
     Dying --> [*]: "Death animation finished"
+```
+
+## Class Diagram
+```mermaid
+classDiagram
+    class Player {
+        +float SPEED
+        +float JUMP_VELOCITY
+        +int MAGAZINE_SIZE
+        +int bullets_remaining
+        +bool is_shooting
+        +bool is_retrieving
+        +AnimatedSprite2D animated_sprite
+        +Marker2D gun_marker
+        +shoot()
+        +try_retrieve_bullet()
+        +on_bullet_returned()
+        +_on_animation_finished()
+    }
+
+    class Bullet {
+        +Vector2 bullet_velocity
+        +float return_range
+        +bool returning
+        +bool has_bounced
+        +_physics_process()
+    }
+
+    class GameStates {
+        +Idle
+        +Running
+        +Shooting
+        +Retrieving
+        +Jumping
+        +Dying
+    }
+
+    Player --> Bullet : "Shoots and retrieves"
+    Player --> GameStates : "Transitions between states"
+    Bullet --> GameStates : "Interacts with player states"
+
+    class Enemy {
+        +bool is_metal
+        +float health
+        +Vector2 position
+        +take_damage()
+    }
+
+    class GameEnvironment {
+        +List~Enemy~ enemies
+        +List~Obstacles~ obstacles
+        +spawn_enemies()
+        +handle_collisions()
+    }
+
+    Player --> Enemy : "Defeats"
+    Player --> GameEnvironment : "Interacts with"
+    Bullet --> Enemy : "Damages"
+    GameEnvironment --> Enemy : "Spawns and manages"
 ```
 
 ## Wireframes
