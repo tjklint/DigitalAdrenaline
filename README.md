@@ -16,9 +16,7 @@ Players begin the game with a short tutorial level introducing the controls for 
 
 At the start of each level, the player is given one magazine containing a limited number of bullets. Each bullet can be recovered after use by bouncing off metal enemies or metal level objects. Players must plan their shots carefully, as running out of bullets will make it significantly harder to progress.
 
-The AI antagonist dynamically taunts the player throughout each level, providing hints about how to defeat it and clues to its weaknesses. Levels become progressively more complex, introducing new obstacles, enemy types, and puzzles that require both precision and strategy to navigate.
-
-Players can interact with certain level elements to manipulate the environment, such as flipping switches to open doors or activating traps to defeat groups of enemies. If a player is hit by an enemy or hazard, they lose health. Health can be regained by collecting medkits scattered throughout the level.
+If a player is hit by an enemy or hazard, they lose health. Health can be regained by collecting medkits scattered throughout the level.
 
 At the end of each level, the player encounters a short dialogue sequence with the AI, which serves to advance the narrative and set the stage for the next challenge. 
 
