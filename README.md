@@ -118,6 +118,8 @@ classDiagram
         +float SPEED
         +float JUMP_VELOCITY
         +int MAGAZINE_SIZE
+        +int MAX_HEALTH
+        +int health
         +int bullets_remaining
         +bool is_shooting
         +bool is_retrieving
@@ -150,11 +152,22 @@ classDiagram
     Player --> GameStates : "Transitions between states"
     Bullet --> GameStates : "Interacts with player states"
 
-    class Enemy {
-        +bool is_metal
+    class Entity {
+        +String name
         +float health
         +Vector2 position
         +take_damage()
+        +move()
+    }
+
+    class RoboCop {
+        +bool player_in_view
+        +bool is_walking
+        +bool is_attacking
+        +Vector2 patrol_path
+        +detect_player()
+        +walk()
+        +attack_player()
     }
 
     class GameEnvironment {
@@ -164,10 +177,11 @@ classDiagram
         +handle_collisions()
     }
 
-    Player --> Enemy : "Defeats"
-    Player --> GameEnvironment : "Interacts with"
-    Bullet --> Enemy : "Damages"
-    GameEnvironment --> Enemy : "Spawns and manages"
+    Entity <|-- RoboCop : "Inherits from"
+    GameEnvironment --> Entity : "Manages"
+    Bullet --> Entity : "Damages"
+    Player --> RoboCop : "Avoids or fights"
+
 ```
 
 ## Wireframes
