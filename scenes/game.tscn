@@ -164,7 +164,7 @@ centered = false
 position = Vector2(-157, 112)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(162, 31)
+position = Vector2(153, 157)
 shape = SubResource("WorldBoundaryShape2D_job32")
 
 [node name="Robocop1" parent="." instance=ExtResource("6_qmquw")]
