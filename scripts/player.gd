@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Bullet
+class_name Player
 
 const SPEED = 139.0
 const JUMP_VELOCITY = -400.0
@@ -121,3 +121,7 @@ func _on_animation_finished():
 		else: 
 			is_shooting = false
 			animated_sprite.play("idle")
+
+func die(): 
+	print("Player has died!")
+	get_tree().reload_current_scene()
