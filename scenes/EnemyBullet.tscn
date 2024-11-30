@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://cf0ixglcxspk0"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_pe0m0"]
+[ext_resource type="Texture2D" uid="uid://bq8bajo14qgee" path="res://assets/EnemyBullet/All_Fire_Bullet_Pixel_16x16.png" id="2_ovhne"]
+[ext_resource type="PackedScene" uid="uid://djxt2b2tln4k5" path="res://scenes/killzone.tscn" id="5_ffkw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yndi"]
+size = Vector2(5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t428b"]
+atlas = ExtResource("2_ovhne")
+region = Rect2(336, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2cma"]
+atlas = ExtResource("2_ovhne")
+region = Rect2(352, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6ck5"]
+atlas = ExtResource("2_ovhne")
+region = Rect2(368, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh1fh"]
+atlas = ExtResource("2_ovhne")
+region = Rect2(384, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_supxb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t428b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2cma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6ck5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh1fh")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hl2js"]
+size = Vector2(5, 5)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_pe0m0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_8yndi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_supxb")
+animation = &"new_animation"
+frame_progress = 0.57836
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Killzone" parent="." instance=ExtResource("5_ffkw2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("RectangleShape2D_hl2js")
+
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

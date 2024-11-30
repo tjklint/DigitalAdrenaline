@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw2y303tmurto"
-path="res://.godot/imported/enemy-shoot3.png-9a6586316aa9e3992b5b76c77444343b.ctex"
+uid="uid://bq8bajo14qgee"
+path="res://.godot/imported/All_Fire_Bullet_Pixel_16x16.png-2ec3d81cdd970919b7a2deb4058dc6ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy/BlueBulletProjectile/enemy-shoot3.png"
-dest_files=["res://.godot/imported/enemy-shoot3.png-9a6586316aa9e3992b5b76c77444343b.ctex"]
+source_file="res://assets/EnemyBullet/All_Fire_Bullet_Pixel_16x16.png"
+dest_files=["res://.godot/imported/All_Fire_Bullet_Pixel_16x16.png-2ec3d81cdd970919b7a2deb4058dc6ed.ctex"]
 
 [params]
 

@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://bxkwpdh08luv5"]
 
 [ext_resource type="PackedScene" uid="uid://bfpfelr54y8qc" path="res://scenes/player.tscn" id="1_ywg5x"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="2_ygtx7"]
 [ext_resource type="Texture2D" uid="uid://dmph21v3ty8u0" path="res://assets/MapTiles/Tiles.png" id="3_r3e58"]
 [ext_resource type="Texture2D" uid="uid://c0kr8g4lefk63" path="res://assets/MapTiles/wallpaper.jpg" id="4_h514b"]
 [ext_resource type="PackedScene" uid="uid://djxt2b2tln4k5" path="res://scenes/killzone.tscn" id="5_tfjhy"]
+[ext_resource type="PackedScene" uid="uid://dg6j06npypg7p" path="res://scenes/robocop.tscn" id="6_qmquw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v2a6b"]
 
@@ -133,7 +133,6 @@ position = Vector2(0, -1)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_ywg5x")]
 position = Vector2(33, -51)
-script = ExtResource("2_ygtx7")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(2, 11)
@@ -165,5 +164,8 @@ centered = false
 position = Vector2(-157, 112)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(158, -14)
+position = Vector2(162, 31)
 shape = SubResource("WorldBoundaryShape2D_job32")
+
+[node name="Robocop1" parent="." instance=ExtResource("6_qmquw")]
+position = Vector2(278, -80)

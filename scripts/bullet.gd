@@ -1,28 +1,29 @@
 extends CharacterBody2D
 
 var bullet_velocity = Vector2(1, 0)
-var speed = 300
+var speed = 200
 var has_bounced = false  
 var returning = false
 
 @export var return_range = 75.0
 var player: CharacterBody2D
 
-#func _ready():
-#	$Killzone.connect("body_entered", Callable(self, "_on_killzone_entered"))
-	
 func _physics_process(delta: float) -> void:
-	if returning and player:		
-		bullet_velocity = (player.global_position - global_position).normalized()
-	else: 
-		velocity = bullet_velocity.normalized() * speed
+	var collision = move_and_collide(bullet_velocity.normalized() * speed * delta)
 	
-	move_and_slide()
+	if collision:
+		var body = collision.get_collider()
+		if body is Enemy:
+			body.die()
+		elif body is Player:
+			body.die()
 	
-	if is_on_floor() or is_on_wall():
 		if has_bounced:
 			queue_free()
 		else: 
 			bullet_velocity = -bullet_velocity
 			has_bounced = true
+				
+	else: 
+		position += bullet_velocity.normalized() * speed * delta
 			
