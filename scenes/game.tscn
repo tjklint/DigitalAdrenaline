@@ -155,7 +155,7 @@ layer_1/name = "Background"
 motion_mirroring = Vector2(1068, 670)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-216, -507)
+position = Vector2(-216, -506)
 scale = Vector2(0.558854, 0.590741)
 texture = ExtResource("4_h514b")
 centered = false
@@ -168,4 +168,4 @@ position = Vector2(162, 31)
 shape = SubResource("WorldBoundaryShape2D_job32")
 
 [node name="Robocop1" parent="." instance=ExtResource("6_qmquw")]
-position = Vector2(278, -80)
+position = Vector2(286, -81)

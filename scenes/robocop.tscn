@@ -77,10 +77,11 @@ frame_progress = 0.020696
 [node name="Timer" type="Timer" parent="."]
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-target_position = Vector2(-17, 0)
+target_position = Vector2(0, 32)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-target_position = Vector2(11, 0)
+target_position = Vector2(0, 32)
+collide_with_areas = true
 
 [node name="Killzone" parent="." instance=ExtResource("12_mteyg")]
 
