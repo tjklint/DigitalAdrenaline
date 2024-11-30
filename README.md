@@ -171,16 +171,22 @@ classDiagram
     }
 
     class GameEnvironment {
-        +List~Enemy~ enemies
+        +List~Entity~ entities
         +List~Obstacles~ obstacles
         +spawn_enemies()
         +handle_collisions()
+    }
+
+    class EnemyFactory {
+        +create_enemy(String type, Vector2 position): Entity
     }
 
     Entity <|-- RoboCop : "Inherits from"
     GameEnvironment --> Entity : "Manages"
     Bullet --> Entity : "Damages"
     Player --> RoboCop : "Avoids or fights"
+    GameEnvironment --> EnemyFactory : "Uses to spawn enemies"
+    EnemyFactory --> Entity : "Creates"
 
 ```
 
