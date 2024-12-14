@@ -76,12 +76,6 @@ frame_progress = 0.020696
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="RayCastLeft" type="RayCast2D" parent="."]
-target_position = Vector2(-17, 0)
-
-[node name="RayCastRight" type="RayCast2D" parent="."]
-target_position = Vector2(11, 0)
-
 [node name="Killzone" parent="." instance=ExtResource("12_mteyg")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
@@ -91,3 +85,24 @@ shape = SubResource("RectangleShape2D_upv0g")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3)
 shape = SubResource("RectangleShape2D_upv0g")
+
+[node name="RayCasts" type="Node" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-18, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+exclude_parent = false
+target_position = Vector2(-2, 32)
+collide_with_areas = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+exclude_parent = false
+target_position = Vector2(2, 32)
+collide_with_areas = true
+
+[node name="PlayerDetectorLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-250, 0)
+
+[node name="PlayerDetectorRight" type="RayCast2D" parent="."]
+target_position = Vector2(250, 0)
