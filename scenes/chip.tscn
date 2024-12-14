@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://csyonb0tjj4wc"]
+
+[ext_resource type="Texture2D" uid="uid://dxeur6ymkh03" path="res://assets/items.png" id="1_l5jhr"]
+[ext_resource type="Script" path="res://scripts/chip.gd" id="1_wmf18"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txshq"]
+atlas = ExtResource("1_l5jhr")
+region = Rect2(32, 4, 15, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e36j4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txshq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_851st"]
+radius = 6.0
+
+[node name="Chip" type="Area2D"]
+script = ExtResource("1_wmf18")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.25, 0.25)
+scale = Vector2(1.03333, 1.03846)
+sprite_frames = SubResource("SpriteFrames_e36j4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_851st")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
