@@ -1,6 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxkwpdh08luv5"]
+[gd_scene load_steps=15 format=3 uid="uid://bxkwpdh08luv5"]
 
+[ext_resource type="Script" path="res://scripts/manager.gd" id="1_iglu8"]
 [ext_resource type="PackedScene" uid="uid://bfpfelr54y8qc" path="res://scenes/player.tscn" id="1_ywg5x"]
+[ext_resource type="FontFile" uid="uid://d4hn6r1ryo04j" path="res://assets/Fonts/PixelOperator8.ttf" id="2_5nkj1"]
+[ext_resource type="Texture2D" uid="uid://c0eiadwq6lnjr" path="res://assets/GUI/UI_Hologram_Frame_Lite_01a.png" id="2_8332q"]
+[ext_resource type="Texture2D" uid="uid://bmpq74qk8gul4" path="res://assets/GUI/UI_Hologram_Frame_Horizontal_01a.png" id="3_c8j3n"]
 [ext_resource type="Texture2D" uid="uid://dmph21v3ty8u0" path="res://assets/MapTiles/Tiles.png" id="3_r3e58"]
 [ext_resource type="Texture2D" uid="uid://c0kr8g4lefk63" path="res://assets/MapTiles/wallpaper.jpg" id="4_h514b"]
 [ext_resource type="PackedScene" uid="uid://djxt2b2tln4k5" path="res://scenes/killzone.tscn" id="5_tfjhy"]
@@ -132,6 +136,10 @@ distance = -2.0
 [node name="Game" type="Node2D"]
 position = Vector2(0, -1)
 
+[node name="Manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_iglu8")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_ywg5x")]
 position = Vector2(33, -51)
 
@@ -140,6 +148,43 @@ position = Vector2(2, 11)
 zoom = Vector2(2, 2)
 limit_bottom = 120
 limit_smoothed = true
+
+[node name="ScoreBoxGUI" type="Sprite2D" parent="CharacterBody2D/Camera2D"]
+position = Vector2(-227.5, -122)
+scale = Vector2(3.78125, 2.5)
+texture = ExtResource("2_8332q")
+
+[node name="BulletBoxGUI2" type="Sprite2D" parent="CharacterBody2D/Camera2D"]
+position = Vector2(228.5, -123.5)
+scale = Vector2(3.71875, 2.53125)
+texture = ExtResource("2_8332q")
+
+[node name="UiHologramFrameHorizontal01a" type="Sprite2D" parent="CharacterBody2D/Camera2D"]
+position = Vector2(0.999996, -150.5)
+scale = Vector2(3.5625, 0.78125)
+texture = ExtResource("3_c8j3n")
+
+[node name="Score_ST" type="Label" parent="CharacterBody2D/Camera2D"]
+offset_left = -266.0
+offset_top = -146.0
+offset_right = -187.0
+offset_bottom = -130.0
+theme_override_fonts/font = ExtResource("2_5nkj1")
+theme_override_font_sizes/font_size = 16
+text = "SCORE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Score_DY" type="Label" parent="CharacterBody2D/Camera2D"]
+offset_left = -265.0
+offset_top = -118.0
+offset_right = -186.0
+offset_bottom = -101.0
+theme_override_fonts/font = ExtResource("2_5nkj1")
+theme_override_font_sizes/font_size = 16
+text = "X"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, -1)
