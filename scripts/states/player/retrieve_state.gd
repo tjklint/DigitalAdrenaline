@@ -1,6 +1,7 @@
 extends State
 
 var previous_state_path: String
+@onready var suck: AudioStreamPlayer2D = $"../../Suck"
 
 func enter(previous_state: String, data: Dictionary = {}):
 	if data.has("player"):
@@ -10,7 +11,7 @@ func enter(previous_state: String, data: Dictionary = {}):
 		push_error("Player not passed to state.")
 	
 	previous_state_path = previous_state
-	
+
 	if player:
 		player.is_retrieving = true
 		player.animated_sprite.play_backwards("shoot")
@@ -24,7 +25,8 @@ func physics_update(delta: float):
 				bullet_found = true
 				bullet.returning = true  
 				bullet.player = player 
-				player.bullets_remaining += 1  
+				player.bullets_remaining += 1 
+				suck.play()
 				bullet.queue_free()  
 				print("Bullet retrieved. Remaining bullets:", player.bullets_remaining)
 				break  
