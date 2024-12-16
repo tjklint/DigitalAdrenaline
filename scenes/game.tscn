@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bxkwpdh08luv5"]
+[gd_scene load_steps=16 format=3 uid="uid://bxkwpdh08luv5"]
 
 [ext_resource type="Script" path="res://scripts/manager.gd" id="1_iglu8"]
 [ext_resource type="PackedScene" uid="uid://bfpfelr54y8qc" path="res://scenes/player.tscn" id="1_ywg5x"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://djxt2b2tln4k5" path="res://scenes/killzone.tscn" id="5_tfjhy"]
 [ext_resource type="PackedScene" uid="uid://csyonb0tjj4wc" path="res://scenes/chip.tscn" id="6_oe8lt"]
 [ext_resource type="PackedScene" uid="uid://dg6j06npypg7p" path="res://scenes/robocop.tscn" id="6_qmquw"]
+[ext_resource type="AudioStream" uid="uid://sl782ysaoqd8" path="res://assets/Music/gtheme.mp3" id="11_vn6lp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v2a6b"]
 
@@ -232,3 +233,8 @@ position = Vector2(365, -159)
 
 [node name="Chip4" parent="." instance=ExtResource("6_oe8lt")]
 position = Vector2(401, -129)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_vn6lp")
+autoplay = true
+bus = &"Music"
