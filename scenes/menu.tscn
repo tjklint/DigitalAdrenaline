@@ -70,6 +70,7 @@ theme_override_font_sizes/font_size = 48
 text = "DIGITAL"
 
 [node name="Label2" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
 offset_left = -129.0
 offset_top = 57.0
 offset_right = 201.0
