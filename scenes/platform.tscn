@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkhrh7whqeoha"]
+
+[ext_resource type="Texture2D" uid="uid://dykqx40aeawad" path="res://assets/MapTiles/PipesAndBoxes_AssetSheet.png" id="1_11dfj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_teitv"]
+size = Vector2(77, 28)
+
+[node name="Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(23.5, 7)
+scale = Vector2(2.56667, 2)
+texture = ExtResource("1_11dfj")
+region_enabled = true
+region_rect = Rect2(65, 49, 30, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(23.5, 7)
+shape = SubResource("RectangleShape2D_teitv")
+one_way_collision = true

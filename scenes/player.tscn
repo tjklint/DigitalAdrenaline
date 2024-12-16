@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bfpfelr54y8qc"]
+[gd_scene load_steps=67 format=3 uid="uid://bfpfelr54y8qc"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_4rpxl"]
 [ext_resource type="Texture2D" uid="uid://glhp70r6way8" path="res://assets/Player/Duck/Duck1.png" id="1_ew8cf"]
@@ -35,6 +35,8 @@
 [ext_resource type="Script" path="res://scripts/states/player/retrieve_state.gd" id="33_phw51"]
 [ext_resource type="Script" path="res://scripts/states/player/run_state.gd" id="34_d3fw3"]
 [ext_resource type="Script" path="res://scripts/states/player/shoot_state.gd" id="35_nnjvd"]
+[ext_resource type="AudioStream" uid="uid://c0cq82hl42msm" path="res://assets/SFX/playershot.wav" id="36_67fai"]
+[ext_resource type="AudioStream" uid="uid://h4qpf55dbcql" path="res://assets/SFX/playersuck.wav" id="37_t51h2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dna2v"]
 atlas = ExtResource("1_ew8cf")
@@ -299,3 +301,9 @@ script = ExtResource("35_nnjvd")
 
 [node name="RetrieveState" type="Node" parent="StateMachine"]
 script = ExtResource("33_phw51")
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("36_67fai")
+
+[node name="Suck" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("37_t51h2")

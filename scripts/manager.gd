@@ -1,7 +1,7 @@
 extends Node
 
 var total_score = 0
-@onready var score_dy: Label = $"../CharacterBody2D/Camera2D/Score_DY"
+@onready var score_dy: Label = $"../CanvasLayer/Control/Score_DY"
 
 func add_score(score: int):
 	total_score += score

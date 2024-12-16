@@ -7,6 +7,7 @@ class_name Player
 @export var PROTAG_BULLET = preload("res://scenes/ProtagBullet.tscn")
 @export var MAGAZINE_SIZE := 10
 
+@onready var hud = $Control
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gun_marker: Marker2D = $Node2D/GunMarker2D
 @onready var state_machine: StateMachine = $StateMachine
@@ -16,11 +17,9 @@ var is_retrieving = false
 var bullets_remaining = MAGAZINE_SIZE
 
 func _ready():
-	# Connect animation finished signal
 	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
-	# Debug print to confirm Player is initialized
 	print("Player initialized and ready.")
-
+	
 func _physics_process(delta: float) -> void:
 	# Add gravity
 	if not is_retrieving:

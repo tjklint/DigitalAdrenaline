@@ -1,6 +1,7 @@
 extends State
 
 var previous_state_path: String
+@onready var shoot: AudioStreamPlayer2D = $"../../Shoot"
 
 func enter(previous_state: String, data: Dictionary = {}):
 	if data.has("player"):
@@ -14,6 +15,7 @@ func enter(previous_state: String, data: Dictionary = {}):
 	if player and player.bullets_remaining > 0:
 		player.is_shooting = true
 		player.animated_sprite.play("shoot")
+		shoot.play()
 		
 		var bullet = player.PROTAG_BULLET.instantiate()
 		get_tree().get_root().add_child(bullet)
