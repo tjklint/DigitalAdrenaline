@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://5j6erc265m6w"]
+
+[ext_resource type="Script" path="res://scripts/level_selection.gd" id="1_1khbn"]
+[ext_resource type="Script" path="res://scripts/menu_camera.gd" id="1_vs2ts"]
+[ext_resource type="FontFile" uid="uid://d4hn6r1ryo04j" path="res://assets/Fonts/PixelOperator8.ttf" id="2_l7yrd"]
+[ext_resource type="Texture2D" uid="uid://c0kr8g4lefk63" path="res://assets/MapTiles/wallpaper.jpg" id="4_mnsb0"]
+
+[node name="level_selection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1khbn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(33, 149)
+zoom = Vector2(2, 2)
+script = ExtResource("1_vs2ts")
+
+[node name="Control" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -13.0
+offset_top = -129.0
+offset_right = -13.0
+offset_bottom = -129.0
+
+[node name="Level1" type="Button" parent="Camera2D/Control"]
+layout_mode = 2
+offset_left = -165.0
+offset_top = 131.0
+offset_right = -34.0
+offset_bottom = 249.0
+theme_override_fonts/font = ExtResource("2_l7yrd")
+theme_override_font_sizes/font_size = 32
+text = "1"
+
+[node name="Level2" type="Button" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 131.0
+offset_right = 173.0
+offset_bottom = 244.0
+theme_override_fonts/font = ExtResource("2_l7yrd")
+theme_override_font_sizes/font_size = 32
+text = "2"
+
+[node name="Label" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = -201.0
+offset_top = 9.0
+offset_right = 45.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(0.563362, 0.538246, 0.540413, 1)
+theme_override_fonts/font = ExtResource("2_l7yrd")
+theme_override_font_sizes/font_size = 48
+text = "DIGITAL"
+
+[node name="Label2" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = -129.0
+offset_top = 57.0
+offset_right = 201.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(0.365897, 0.562772, 1, 1)
+theme_override_fonts/font = ExtResource("2_l7yrd")
+theme_override_font_sizes/font_size = 40
+text = "ADRENALINE"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1068, 670)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-306, -228)
+scale = Vector2(0.558854, 0.590741)
+texture = ExtResource("4_mnsb0")
+centered = false
+
+[connection signal="pressed" from="Camera2D/Control/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Camera2D/Control/Level2" to="." method="_on_level_2_pressed"]
