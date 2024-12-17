@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bxkwpdh08luv5"]
+[gd_scene load_steps=28 format=3 uid="uid://bxkwpdh08luv5"]
 
 [ext_resource type="Script" path="res://scripts/manager.gd" id="1_awp2f"]
 [ext_resource type="PackedScene" uid="uid://bfpfelr54y8qc" path="res://scenes/player.tscn" id="2_ukhmd"]
@@ -15,12 +15,10 @@
 [ext_resource type="FontFile" uid="uid://d4hn6r1ryo04j" path="res://assets/Fonts/PixelOperator8.ttf" id="11_7y1ni"]
 [ext_resource type="PackedScene" uid="uid://csyonb0tjj4wc" path="res://scenes/chip.tscn" id="12_aenja"]
 [ext_resource type="Script" path="res://scripts/level1complete.gd" id="13_nubqy"]
+[ext_resource type="AudioStream" uid="uid://c3c8edm4nxib3" path="res://assets/SFX/closernotready.wav" id="16_6xmvl"]
+[ext_resource type="AudioStream" uid="uid://w7wsa3jl1wsp" path="res://assets/SFX/can'tdie.wav" id="17_oebx3"]
 
 [sub_resource type="GDScript" id="GDScript_vsl8x"]
-script/source = "extends Node2D
-
-
-"
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v2a6b"]
 
@@ -462,4 +460,14 @@ script = ExtResource("13_nubqy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_lxdue")
 
+[node name="Taunt" type="AudioStreamPlayer2D" parent="Area2D"]
+stream = ExtResource("16_6xmvl")
+bus = &"SFX"
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_oebx3")
+
 [connection signal="body_entered" from="Area2D" to="Manager" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="finished" from="Area2D/Taunt" to="." method="_on_taunt_finished"]
+[connection signal="finished" from="Area2D/Taunt" to="Area2D" method="_on_taunt_finished"]

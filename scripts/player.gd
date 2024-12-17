@@ -7,12 +7,14 @@ class_name Player
 @export var PROTAG_BULLET = preload("res://scenes/ProtagBullet.tscn")
 @export var MAGAZINE_SIZE := 5
 
+@onready var music: AudioStreamPlayer2D = $"../Music"
 @onready var death_timer: Timer = Timer.new()
 @onready var manager: Node = %Manager
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gun_marker: Marker2D = $Node2D/GunMarker2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var death_sound: AudioStreamPlayer2D = $"../DeathSound"
 
 var is_dying = false  
 var is_shooting = false
@@ -81,7 +83,9 @@ func _on_animation_finished():
 func die() -> void:
 	if is_dying:  
 		return
-
+		
+	music.stop()
+	death_sound.play()
 	print("Player died.")
 	is_dying = true
 	state_machine.set_physics_process(false)  
@@ -111,4 +115,5 @@ func _respawn():
 	collision_shape.disabled = false
 	global_position = RESPAWN_POSITION
 	velocity = Vector2.ZERO
+	music.play()
 	animated_sprite.play("idle")

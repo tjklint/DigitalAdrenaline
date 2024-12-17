@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cr38604ca5th8"]
+[gd_scene load_steps=25 format=3 uid="uid://cr38604ca5th8"]
 
 [ext_resource type="Script" path="res://scripts/manager.gd" id="1_uq8od"]
 [ext_resource type="PackedScene" uid="uid://bfpfelr54y8qc" path="res://scenes/player.tscn" id="2_6wlf1"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bmpq74qk8gul4" path="res://assets/GUI/UI_Hologram_Frame_Horizontal_01a.png" id="11_glsck"]
 [ext_resource type="FontFile" uid="uid://d4hn6r1ryo04j" path="res://assets/Fonts/PixelOperator8.ttf" id="12_l7c8i"]
 [ext_resource type="Script" path="res://scripts/level2complete.gd" id="13_y20yf"]
+[ext_resource type="AudioStream" uid="uid://bi41nwem6o3m" path="res://assets/SFX/excitedcomefind.wav" id="14_6g8qu"]
+[ext_resource type="AudioStream" uid="uid://w7wsa3jl1wsp" path="res://assets/SFX/can'tdie.wav" id="15_h55ae"]
 
 [sub_resource type="GDScript" id="GDScript_ajk8p"]
 
@@ -419,3 +421,13 @@ script = ExtResource("13_y20yf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_5k8iu")
+
+[node name="Taunt" type="AudioStreamPlayer2D" parent="Area2D"]
+stream = ExtResource("14_6g8qu")
+bus = &"SFX"
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_h55ae")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="finished" from="Area2D/Taunt" to="." method="_on_taunt_finished"]
