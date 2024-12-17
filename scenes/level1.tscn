@@ -229,7 +229,6 @@ position = Vector2(-6, 18)
 stream = ExtResource("7_t267u")
 autoplay = true
 max_distance = 5e+06
-bus = &"Music"
 
 [node name="Platform" parent="." instance=ExtResource("8_5cxhx")]
 position = Vector2(901, -106)

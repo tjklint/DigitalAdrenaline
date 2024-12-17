@@ -7,7 +7,7 @@ func _process(delta: float) -> void:
 	parallax_background.scroll_offset += scroll_speed * delta
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/level1.tscn")
+	get_tree().change_scene_to_file("res://scenes/level_selection.tscn")
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
