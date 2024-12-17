@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cr38604ca5th8"]
+[gd_scene load_steps=22 format=3 uid="uid://cr38604ca5th8"]
 
 [ext_resource type="Script" path="res://scripts/manager.gd" id="1_uq8od"]
 [ext_resource type="PackedScene" uid="uid://bfpfelr54y8qc" path="res://scenes/player.tscn" id="2_6wlf1"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c0eiadwq6lnjr" path="res://assets/GUI/UI_Hologram_Frame_Lite_01a.png" id="10_gwwcl"]
 [ext_resource type="Texture2D" uid="uid://bmpq74qk8gul4" path="res://assets/GUI/UI_Hologram_Frame_Horizontal_01a.png" id="11_glsck"]
 [ext_resource type="FontFile" uid="uid://d4hn6r1ryo04j" path="res://assets/Fonts/PixelOperator8.ttf" id="12_l7c8i"]
+[ext_resource type="Script" path="res://scripts/level2completed.gd" id="13_y20yf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v2a6b"]
 
@@ -175,7 +176,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5k8iu"]
-radius = 59.4138
+radius = 38.0132
 
 [node name="Level2" type="Node2D"]
 position = Vector2(0, -1)
@@ -411,6 +412,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(2350, -44)
+script = ExtResource("13_y20yf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_5k8iu")
