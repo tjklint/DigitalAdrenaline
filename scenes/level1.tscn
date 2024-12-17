@@ -313,6 +313,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="ScoreBoxGUI" type="Sprite2D" parent="CanvasLayer/Control"]
 position = Vector2(100.5, 66)

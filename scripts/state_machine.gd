@@ -20,8 +20,6 @@ func _ready():
 	if current_state:
 		current_state.enter("", {"player": owner})
 
-
-
 func _process(delta):
 	if current_state:
 		current_state.update(delta)
