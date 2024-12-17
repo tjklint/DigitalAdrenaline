@@ -29,7 +29,6 @@ offset_bottom = -129.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Level1" type="Button" parent="Camera2D/Control"]
-layout_mode = 2
 offset_left = -165.0
 offset_top = 131.0
 offset_right = -34.0
@@ -40,7 +39,6 @@ text = "1"
 metadata/_edit_use_anchors_ = true
 
 [node name="Level2" type="Button" parent="Camera2D/Control"]
-layout_mode = 0
 offset_left = 41.0
 offset_top = 131.0
 offset_right = 173.0
@@ -51,7 +49,6 @@ text = "2"
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Camera2D/Control"]
-layout_mode = 0
 offset_left = -201.0
 offset_top = 9.0
 offset_right = 45.0
@@ -63,7 +60,6 @@ text = "DIGITAL"
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Camera2D/Control"]
-layout_mode = 0
 offset_left = -129.0
 offset_top = 57.0
 offset_right = 201.0
@@ -73,6 +69,29 @@ theme_override_fonts/font = ExtResource("2_l7yrd")
 theme_override_font_sizes/font_size = 40
 text = "ADRENALINE"
 metadata/_edit_use_anchors_ = true
+
+[node name="BestScoreLvl1" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = -159.0
+offset_top = 224.0
+offset_right = -31.0
+offset_bottom = 247.0
+theme_override_colors/font_color = Color(0.564706, 0.537255, 0.541176, 1)
+theme_override_fonts/font = ExtResource("2_l7yrd")
+theme_override_font_sizes/font_size = 8
+text = "BEST SCORE: 0"
+horizontal_alignment = 1
+
+[node name="BestScoreLvl2" type="Label" parent="Camera2D/Control"]
+offset_left = 45.0
+offset_top = 224.0
+offset_right = 173.0
+offset_bottom = 247.0
+theme_override_colors/font_color = Color(0.564706, 0.537255, 0.541176, 1)
+theme_override_fonts/font = ExtResource("2_l7yrd")
+theme_override_font_sizes/font_size = 8
+text = "BEST SCORE: 0"
+horizontal_alignment = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
