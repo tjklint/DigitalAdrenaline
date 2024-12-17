@@ -5,6 +5,8 @@ extends Control
 
 @onready var level1_button: Button = $Camera2D/Control/Level1
 @onready var level2_button: Button = $Camera2D/Control/Level2
+@onready var best_score_lvl_1: Label = $Camera2D/Control/BestScoreLvl1
+@onready var best_score_lvl_2: Label = $Camera2D/Control/BestScoreLvl2
 
 const SAVE_FILE = "user://game_progress.cfg"
 
@@ -13,6 +15,8 @@ var progress = {"level_1_completed": false}
 func _ready():
 	_load_progress()
 	_update_level_buttons()
+	_display_scores()
+
 
 func _process(delta: float) -> void:
 	parallax_background.scroll_offset += scroll_speed * delta
@@ -54,3 +58,16 @@ func on_level_1_completed():
 	progress["level_1_completed"] = true
 	_save_progress()
 	_update_level_buttons()
+
+
+func _display_scores():
+	var config = ConfigFile.new()
+	if config.load(SAVE_FILE) == OK:
+		var level_1_score = config.get_value("scores", "level_1_score", 0)
+		var level_2_score = config.get_value("scores", "level_2_score", 0)
+
+		best_score_lvl_1.text = "Best Score: " + str(level_1_score)
+		best_score_lvl_2.text = "Best Score: " + str(level_2_score)
+	else:
+		best_score_lvl_1.text = "Best Score: 0"
+		best_score_lvl_2.text = "Best Score: 0"
