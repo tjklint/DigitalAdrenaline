@@ -313,7 +313,7 @@ region_enabled = true
 region_rect = Rect2(65, 49, 30, 14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/TweenedPlatform"]
-position = Vector2(2466, 59)
+position = Vector2(2467, 60)
 shape = SubResource("RectangleShape2D_yn3ns")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]

@@ -1,6 +1,6 @@
 extends AnimatableBody2D
 
-@export var move_distance := Vector2(330, 0)  
+@export var move_distance := Vector2(300, 0)  
 @export var move_duration := 2.0  
 @export var loop := true 
 

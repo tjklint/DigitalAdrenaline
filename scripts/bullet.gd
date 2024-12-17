@@ -15,9 +15,8 @@ func _physics_process(delta: float) -> void:
 		if player:
 			var direction = (player.global_position - global_position).normalized()
 			position += direction * speed * delta
-			# Check if bullet has reached the player
 			if global_position.distance_to(player.global_position) < 10.0:
-				queue_free()  # Consume bullet
+				queue_free()  
 		return
 
 	var collision = move_and_collide(bullet_velocity.normalized() * speed * delta)

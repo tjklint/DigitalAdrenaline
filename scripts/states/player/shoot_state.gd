@@ -15,11 +15,14 @@ func enter(previous_state: String, data: Dictionary = {}):
 		player.is_shooting = true
 		player.animated_sprite.play("shoot")
 		
-		var bullet = player.PROTAG_BULLET.instantiate()
-		get_tree().get_root().add_child(bullet)
-		bullet.add_to_group("Bullets")
-		bullet.position = player.gun_marker.global_position
-		bullet.bullet_velocity = Vector2(1 if not player.animated_sprite.flip_h else -1, 0)
+		# Replace instantiation ONLY with the factory call
+		var bullet = BulletFactory.create_bullet("ProtagBullet")
+		if bullet:
+			bullet.position = player.gun_marker.global_position
+			bullet.bullet_velocity = Vector2(1 if not player.animated_sprite.flip_h else -1, 0)
+			bullet.add_to_group("Bullets")
+			get_tree().get_root().add_child(bullet)
+
 		player.bullets_remaining -= 1
 		print("Bullet fired. Remaining bullets:", player.bullets_remaining)
 	else:

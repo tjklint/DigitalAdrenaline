@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout=""
 
+[autoload]
+
+BulletFactory="*res://scripts/bullet_factory.gd"
+
 [global_group]
 
 enemies=""
