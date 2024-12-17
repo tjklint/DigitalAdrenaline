@@ -33,27 +33,22 @@ func _physics_process(delta: float) -> void:
 	if is_dying:
 		return
 	
-	# Add gravity
 	if not is_retrieving:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 
-		# Handle jump
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 
-		# Get the input direction, -1, 0, 1
 		var direction := Input.get_axis("move_left", "move_right")
 		
-		# Flip the sprite according to direction and adjust marker position
 		if direction > 0:
 			animated_sprite.flip_h = false
-			gun_marker.position.x = abs(gun_marker.position.x)  # Ensure GunMarker2D is on the right side
+			gun_marker.position.x = abs(gun_marker.position.x)  
 		elif direction < 0:
 			animated_sprite.flip_h = true
-			gun_marker.position.x = -abs(gun_marker.position.x)  # Move GunMarker2D to the left side
+			gun_marker.position.x = -abs(gun_marker.position.x)  
 
-		# Animations - Only play idle or running if not shooting
 		if not is_shooting:
 			if is_on_floor():
 				if direction == 0:
@@ -63,7 +58,6 @@ func _physics_process(delta: float) -> void:
 			else:
 				animated_sprite.play("jump")
 		
-		# Apply movement to character
 		if direction:
 			velocity.x = direction * SPEED
 		else:
