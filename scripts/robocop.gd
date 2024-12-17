@@ -1,7 +1,8 @@
 extends Enemy
 class_name Robocop
 
-const BULLET = preload("res://scenes/EnemyBullet.tscn")  
+const BULLET = preload("res://scenes/EnemyBullet.tscn") 
+const BulletType = preload("res://scripts/bullet_factory.gd").BulletType 
 const ENEMY_SPEED = 60
 const FIRE_COOLDOWN = 2.0
 
@@ -37,7 +38,7 @@ func _process(delta: float) -> void:
 
 func fire_bullet():
 	print("Enemy is firing")
-	var bullet = BulletFactory.create_bullet("EnemyBullet")
+	var bullet = BulletFactory.create_bullet(BulletType.ENEMY_BULLET)
 	if bullet:
 		bullet.position = gun_marker.global_position
 		bullet.bullet_velocity = Vector2(direction, 0)
