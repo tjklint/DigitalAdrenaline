@@ -40,10 +40,11 @@ func _process(delta: float) -> void:
 
 func fire_bullet():
 	print("Enemy is firing")
-	var bullet = BULLET.instantiate()
-	bullet.position = gun_marker.global_position
-	bullet.bullet_velocity = Vector2(direction, 0)
-	get_tree().root.add_child(bullet)
+	var bullet = BulletFactory.create_bullet("EnemyBullet")
+	if bullet:
+		bullet.position = gun_marker.global_position
+		bullet.bullet_velocity = Vector2(direction, 0)
+		get_tree().root.add_child(bullet)
 
 	# Timer for cooldown
 	var cooldown_timer = Timer.new()
