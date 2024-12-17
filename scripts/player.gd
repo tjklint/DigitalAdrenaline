@@ -5,7 +5,7 @@ class_name Player
 @export var JUMP_VELOCITY := -400.0
 @export var GRAVITY := 1000.0
 @export var PROTAG_BULLET = preload("res://scenes/ProtagBullet.tscn")
-@export var MAGAZINE_SIZE := 10
+@export var MAGAZINE_SIZE := 5
 
 @onready var manager: Node = %Manager
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -66,11 +66,10 @@ func _physics_process(delta: float) -> void:
 func _on_animation_finished():
 	if animated_sprite.animation == "shoot":
 		if is_retrieving:
-			# Finish retrieving after animation
+			manager.set_bullets(bullets_remaining)
 			is_retrieving = false
-			state_machine.emit_signal("finished", "IdleState")
 		elif is_shooting:
-			# Finish shooting after animation
+			manager.set_bullets(bullets_remaining)
 			is_shooting = false
 
 func die() -> void:

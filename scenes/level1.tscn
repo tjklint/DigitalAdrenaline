@@ -368,10 +368,10 @@ texture = ExtResource("9_r3fbc")
 [node name="Lives_DY" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 23.1475
-anchor_top = -2.51
-anchor_right = 23.1475
-anchor_bottom = -2.335
+anchor_left = 23.7225
+anchor_top = -2.485
+anchor_right = 23.7225
+anchor_bottom = -2.31
 offset_left = 126.1
 offset_top = 122.4
 offset_right = 205.1
@@ -404,9 +404,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Bullets_DY" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.91306
+anchor_left = 2.53806
 anchor_top = -3.264
-anchor_right = 1.91306
+anchor_right = 2.53806
 anchor_bottom = -3.089
 offset_left = 973.477
 offset_top = 184.56
