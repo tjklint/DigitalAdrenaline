@@ -368,6 +368,8 @@ script = ExtResource("33_phw51")
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("36_67fai")
+bus = &"SFX"
 
 [node name="Suck" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("37_t51h2")
+bus = &"SFX"

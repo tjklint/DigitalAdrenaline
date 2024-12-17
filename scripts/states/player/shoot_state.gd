@@ -2,6 +2,7 @@ extends State
 
 var previous_state_path: String
 const BulletType = preload("res://scripts/bullet_factory.gd").BulletType
+@onready var shoot: AudioStreamPlayer2D = $"../../Shoot"
 
 func enter(previous_state: String, data: Dictionary = {}):
 	if data.has("player"):
@@ -20,6 +21,7 @@ func enter(previous_state: String, data: Dictionary = {}):
 	if player and player.bullets_remaining > 0:
 		player.is_shooting = true
 		player.animated_sprite.play("shoot")
+		shoot.play()
 		
 		var bullet = BulletFactory.create_bullet(BulletType.PROTAG_BULLET)
 		if bullet:

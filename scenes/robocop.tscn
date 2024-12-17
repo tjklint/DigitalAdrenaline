@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dg6j06npypg7p"]
+[gd_scene load_steps=17 format=3 uid="uid://dg6j06npypg7p"]
 
 [ext_resource type="Script" path="res://scripts/robocop.gd" id="1_lnf65"]
 [ext_resource type="Texture2D" uid="uid://bdrsikmrxgsfd" path="res://assets/Enemy/Robocop/idle/cop3.png" id="1_txhjo"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d0dfes42jvqa8" path="res://assets/Enemy/Robocop/run/cop9.png" id="10_fryai"]
 [ext_resource type="Texture2D" uid="uid://c4m01g6k0jgnl" path="res://assets/Enemy/Robocop/run/cop10.png" id="11_domnl"]
 [ext_resource type="PackedScene" uid="uid://djxt2b2tln4k5" path="res://scenes/killzone.tscn" id="12_mteyg"]
+[ext_resource type="AudioStream" uid="uid://c0cq82hl42msm" path="res://assets/SFX/playershot.wav" id="14_8r6xs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_31iui"]
 animations = [{
@@ -106,3 +107,7 @@ target_position = Vector2(-250, 0)
 
 [node name="PlayerDetectorRight" type="RayCast2D" parent="."]
 target_position = Vector2(250, 0)
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_8r6xs")
+bus = &"SFX"

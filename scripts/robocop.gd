@@ -6,6 +6,7 @@ const BulletType = preload("res://scripts/bullet_factory.gd").BulletType
 const ENEMY_SPEED = 60
 const FIRE_COOLDOWN = 2.0
 
+@onready var shoot: AudioStreamPlayer2D = $Shoot
 @onready var gun_marker: Marker2D = $Marker2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
@@ -40,6 +41,7 @@ func fire_bullet():
 	print("Enemy is firing")
 	var bullet = BulletFactory.create_bullet(BulletType.ENEMY_BULLET)
 	if bullet:
+		shoot.play()
 		bullet.position = gun_marker.global_position
 		bullet.bullet_velocity = Vector2(direction, 0)
 		get_tree().root.add_child(bullet)
