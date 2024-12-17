@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bxkwpdh08luv5"]
+[gd_scene load_steps=26 format=3 uid="uid://bxkwpdh08luv5"]
 
 [ext_resource type="Script" path="res://scripts/manager.gd" id="1_awp2f"]
 [ext_resource type="PackedScene" uid="uid://bfpfelr54y8qc" path="res://scenes/player.tscn" id="2_ukhmd"]
@@ -8,11 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://dg6j06npypg7p" path="res://scenes/robocop.tscn" id="6_v5a1u"]
 [ext_resource type="AudioStream" uid="uid://sl782ysaoqd8" path="res://assets/Music/gtheme.mp3" id="7_t267u"]
 [ext_resource type="PackedScene" uid="uid://dkhrh7whqeoha" path="res://scenes/platform.tscn" id="8_5cxhx"]
+[ext_resource type="Script" path="res://scripts/tweenedplatform.gd" id="9_8estk"]
+[ext_resource type="Texture2D" uid="uid://dykqx40aeawad" path="res://assets/MapTiles/PipesAndBoxes_AssetSheet.png" id="9_dqrx8"]
 [ext_resource type="Texture2D" uid="uid://c0eiadwq6lnjr" path="res://assets/GUI/UI_Hologram_Frame_Lite_01a.png" id="9_r3fbc"]
 [ext_resource type="Texture2D" uid="uid://bmpq74qk8gul4" path="res://assets/GUI/UI_Hologram_Frame_Horizontal_01a.png" id="10_3bvv2"]
 [ext_resource type="FontFile" uid="uid://d4hn6r1ryo04j" path="res://assets/Fonts/PixelOperator8.ttf" id="11_7y1ni"]
 [ext_resource type="PackedScene" uid="uid://csyonb0tjj4wc" path="res://scenes/chip.tscn" id="12_aenja"]
 [ext_resource type="Script" path="res://scripts/level1complete.gd" id="13_nubqy"]
+
+[sub_resource type="GDScript" id="GDScript_vsl8x"]
+script/source = "extends Node2D
+
+
+"
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v2a6b"]
 
@@ -175,11 +183,15 @@ _data = {
 "move": SubResource("Animation_qlo5x")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yn3ns"]
+size = Vector2(70, 26)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_lxdue"]
 radius = 44.0
 
 [node name="Level1" type="Node2D"]
 position = Vector2(0, -1)
+script = SubResource("GDScript_vsl8x")
 
 [node name="Manager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -268,7 +280,7 @@ position = Vector2(1572, -145)
 position = Vector2(1502, -145)
 
 [node name="Robocop5" parent="Robocops" instance=ExtResource("6_v5a1u")]
-position = Vector2(2416, 14)
+position = Vector2(2418, 16)
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -290,14 +302,19 @@ libraries = {
 }
 autoplay = "RESET"
 
-[node name="Platform3" parent="Platforms" instance=ExtResource("8_5cxhx")]
-position = Vector2(1904, 53)
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="Platforms"]
+script = ExtResource("9_8estk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform3"]
-libraries = {
-"": SubResource("AnimationLibrary_dxcy4")
-}
-autoplay = "RESET"
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/AnimatableBody2D"]
+position = Vector2(2466, 59)
+scale = Vector2(2.3, 1.85714)
+texture = ExtResource("9_dqrx8")
+region_enabled = true
+region_rect = Rect2(65, 49, 30, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/AnimatableBody2D"]
+position = Vector2(2466, 59)
+shape = SubResource("RectangleShape2D_yn3ns")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-6, 18)
