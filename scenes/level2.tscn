@@ -280,6 +280,7 @@ autoplay = "RESET"
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-6, 18)
 stream = ExtResource("9_f38sl")
+volume_db = -80.0
 autoplay = true
 max_distance = 5e+06
 
