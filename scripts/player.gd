@@ -7,11 +7,14 @@ class_name Player
 @export var PROTAG_BULLET = preload("res://scenes/ProtagBullet.tscn")
 @export var MAGAZINE_SIZE := 5
 
+@onready var death_timer: Timer = Timer.new()
 @onready var manager: Node = %Manager
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gun_marker: Marker2D = $Node2D/GunMarker2D
 @onready var state_machine: StateMachine = $StateMachine
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
+var is_dying = false  
 var is_shooting = false
 var is_retrieving = false
 var bullets_remaining = MAGAZINE_SIZE
@@ -21,7 +24,15 @@ func _ready():
 	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
 	print("Player initialized and ready.")
 	
+	add_child(death_timer)
+	death_timer.wait_time = 1.25
+	death_timer.one_shot = true
+	death_timer.connect("timeout", Callable(self, "_on_death_timer_timeout"))
+	
 func _physics_process(delta: float) -> void:
+	if is_dying:
+		return
+	
 	# Add gravity
 	if not is_retrieving:
 		if not is_on_floor():
@@ -60,7 +71,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	if state_machine:
+	if state_machine and not is_dying:
 		state_machine._physics_process(delta)
 
 func _on_animation_finished():
@@ -72,17 +83,38 @@ func _on_animation_finished():
 			manager.set_bullets(bullets_remaining)
 			is_shooting = false
 
-func die() -> void:
-	print("Player has died! Playing death animation...")
-	animated_sprite.play("death")
 
-	manager.lose_life()
-	if manager.player_lives > 0:
+func die() -> void:
+	if is_dying:  
+		return
+
+	print("Player died.")
+	is_dying = true
+	state_machine.set_physics_process(false)  
+
+	animated_sprite.play("death")
+	death_timer.start()
+	collision_shape.disabled = true
+	velocity = Vector2.ZERO  
+
+
+func _on_death_timer_timeout():
+	print("Death timer finished. Respawning...")
+
+	if manager.player_lives > 1:
+		manager.lose_life()
 		_respawn()
+		velocity = Vector2.ZERO
+		set_physics_process(true)
+		print("Player respawned.")
 	else:
+		print("Game Over")
 		manager.show_game_over()
-		
+
 func _respawn():
 	print("Respawning player...")
+	is_dying = false  
+	collision_shape.disabled = false
 	global_position = RESPAWN_POSITION
 	velocity = Vector2.ZERO
+	animated_sprite.play("idle")
