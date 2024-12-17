@@ -24,13 +24,14 @@ func _physics_process(delta: float) -> void:
 		var body = collision.get_collider()
 		if body is Enemy:
 			body.die()
-		elif body is Player:
-			queue_free()
 	
 		if has_bounced:
 			queue_free()
 		else: 
 			bullet_velocity = -bullet_velocity
 			has_bounced = true
+			
+		if body is Player:
+			queue_free()
 	else:
 		position += bullet_velocity.normalized() * speed * delta
