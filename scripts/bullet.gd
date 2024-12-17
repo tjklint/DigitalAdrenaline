@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name bullet
 
 var bullet_velocity = Vector2(1, 0)
 var speed = 200
