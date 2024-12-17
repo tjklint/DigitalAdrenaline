@@ -302,17 +302,17 @@ libraries = {
 }
 autoplay = "RESET"
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="Platforms"]
+[node name="TweenedPlatform" type="AnimatableBody2D" parent="Platforms"]
 script = ExtResource("9_8estk")
 
-[node name="Sprite2D" type="Sprite2D" parent="Platforms/AnimatableBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/TweenedPlatform"]
 position = Vector2(2466, 59)
 scale = Vector2(2.3, 1.85714)
 texture = ExtResource("9_dqrx8")
 region_enabled = true
 region_rect = Rect2(65, 49, 30, 14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/AnimatableBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/TweenedPlatform"]
 position = Vector2(2466, 59)
 shape = SubResource("RectangleShape2D_yn3ns")
 
