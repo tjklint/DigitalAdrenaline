@@ -87,4 +87,3 @@ func _respawn():
 	print("Respawning player...")
 	global_position = RESPAWN_POSITION
 	velocity = Vector2.ZERO
-	animated_sprite.play("idle")  
