@@ -22,7 +22,6 @@ func _on_level_1_pressed() -> void:
 	pass 
 	
 
-
 func _load_progress():
 	var config = ConfigFile.new()
 	if config.load(SAVE_FILE) == OK:
