@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuy4w2epm2a7y"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_ya08q"]
+[ext_resource type="FontFile" uid="uid://d4hn6r1ryo04j" path="res://assets/Fonts/PixelOperator8.ttf" id="2_jslca"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ya08q")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-291, -190, 1553, -190, 1557, 1066, -295, 1062)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(547, 293)
+zoom = Vector2(2, 2)
+
+[node name="Control" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -13.0
+offset_top = -129.0
+offset_right = -13.0
+offset_bottom = -129.0
+metadata/_edit_use_anchors_ = true
+
+[node name="StartOver" type="Button" parent="Camera2D/Control"]
+layout_mode = 2
+offset_left = -153.0
+offset_top = 137.0
+offset_right = -22.0
+offset_bottom = 227.0
+theme_override_fonts/font = ExtResource("2_jslca")
+theme_override_font_sizes/font_size = 32
+text = "Start
+Over"
+
+[node name="Quit" type="Button" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 138.0
+offset_right = 173.0
+offset_bottom = 227.0
+theme_override_fonts/font = ExtResource("2_jslca")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="Label" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = -239.0
+offset_top = 26.0
+offset_right = 7.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(0.563362, 0.538246, 0.540413, 1)
+theme_override_fonts/font = ExtResource("2_jslca")
+theme_override_font_sizes/font_size = 64
+text = "GAME"
+
+[node name="Label2" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 24.0
+offset_right = 238.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.392525, 0, 0.0912204, 1)
+theme_override_fonts/font = ExtResource("2_jslca")
+theme_override_font_sizes/font_size = 64
+text = "OVER"
+
+[connection signal="pressed" from="Camera2D/Control/StartOver" to="." method="_on_start_over_pressed"]
+[connection signal="pressed" from="Camera2D/Control/Quit" to="." method="_on_quit_pressed"]
