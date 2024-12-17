@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cviouk2yupydp"]
+[gd_scene load_steps=5 format=3 uid="uid://cviouk2yupydp"]
 
 [ext_resource type="Texture2D" uid="uid://c0kr8g4lefk63" path="res://assets/MapTiles/wallpaper.jpg" id="1_3vige"]
+[ext_resource type="Script" path="res://scripts/thanks.gd" id="1_vcql7"]
 [ext_resource type="Script" path="res://scripts/menu_camera.gd" id="2_4adof"]
 [ext_resource type="FontFile" uid="uid://d4hn6r1ryo04j" path="res://assets/Fonts/PixelOperator8.ttf" id="3_46nnp"]
 
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vcql7")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -28,57 +30,58 @@ position = Vector2(33, 149)
 zoom = Vector2(2, 2)
 script = ExtResource("2_4adof")
 
-[node name="Control" type="Control" parent="Camera2D"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -13.0
-offset_top = -129.0
-offset_right = -13.0
-offset_bottom = -129.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Play" type="Button" parent="Camera2D/Control"]
-layout_mode = 2
-offset_left = -105.0
-offset_top = 139.0
-offset_right = 124.0
-offset_bottom = 180.0
+[node name="Play" type="Button" parent="Camera2D"]
+offset_left = -115.0
+offset_top = 20.0
+offset_right = 114.0
+offset_bottom = 61.0
 theme_override_fonts/font = ExtResource("3_46nnp")
 theme_override_font_sizes/font_size = 16
-text = "Play"
+text = "Play Again"
 metadata/_edit_use_anchors_ = true
 
-[node name="Exit" type="Button" parent="Camera2D/Control"]
-layout_mode = 0
-offset_left = -105.0
-offset_top = 194.0
-offset_right = 125.0
-offset_bottom = 233.0
+[node name="Exit" type="Button" parent="Camera2D"]
+offset_left = -116.0
+offset_top = 77.0
+offset_right = 114.0
+offset_bottom = 116.0
 theme_override_fonts/font = ExtResource("3_46nnp")
 theme_override_font_sizes/font_size = 16
 text = "Exit"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Camera2D/Control"]
-layout_mode = 0
-offset_left = -201.0
-offset_top = 9.0
-offset_right = 45.0
-offset_bottom = 57.0
+[node name="Label" type="Label" parent="Camera2D"]
+offset_left = -227.0
+offset_top = -122.0
+offset_right = 25.0
+offset_bottom = -74.0
 theme_override_colors/font_color = Color(0.563362, 0.538246, 0.540413, 1)
 theme_override_fonts/font = ExtResource("3_46nnp")
 theme_override_font_sizes/font_size = 48
-text = "DIGITAL"
+text = "THANKS"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="Camera2D/Control"]
-layout_mode = 0
-offset_left = -129.0
-offset_top = 57.0
-offset_right = 201.0
-offset_bottom = 105.0
+[node name="Label2" type="Label" parent="Camera2D"]
+offset_left = -122.0
+offset_top = -70.0
+offset_right = 228.0
+offset_bottom = -22.0
 theme_override_colors/font_color = Color(0.365897, 0.562772, 1, 1)
 theme_override_fonts/font = ExtResource("3_46nnp")
 theme_override_font_sizes/font_size = 40
-text = "ADRENALINE"
+text = "FOR PLAYING"
 metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Camera2D"]
+offset_left = -126.0
+offset_top = -20.0
+offset_right = 126.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.563362, 0.538246, 0.540413, 1)
+theme_override_fonts/font = ExtResource("3_46nnp")
+theme_override_font_sizes/font_size = 16
+text = "CREATED BY: TJ KLINT"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Camera2D/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Camera2D/Exit" to="." method="_on_exit_pressed"]
