@@ -11,11 +11,15 @@ func enter(previous_state: String, data: Dictionary = {}):
 		push_error("Player not passed to state.")
 	
 	previous_state_path = previous_state
+	
+	if previous_state in ["FallState", "JumpState"]:
+		previous_state_path = "IdleState"
+	else:
+		previous_state_path = previous_state
 
 	if player:
 		player.is_retrieving = true
 		player.animated_sprite.play_backwards("shoot")
-		# Connect signal safely with CONNECT_ONE_SHOT to avoid duplicates
 		if not player.animated_sprite.is_connected("animation_finished", Callable(self, "_on_animation_finished")):
 			player.animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"), CONNECT_ONE_SHOT)
 

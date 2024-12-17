@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+enum PlayerState { IDLE, RUN, JUMP, FALL, SHOOT, RETRIEVE }
+
 @export var SPEED := 139.0
 @export var JUMP_VELOCITY := -400.0
 @export var GRAVITY := 1000.0

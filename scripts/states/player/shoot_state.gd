@@ -1,6 +1,7 @@
 extends State
 
 var previous_state_path: String
+const BulletType = preload("res://scripts/bullet_factory.gd").BulletType
 
 func enter(previous_state: String, data: Dictionary = {}):
 	if data.has("player"):
@@ -11,11 +12,16 @@ func enter(previous_state: String, data: Dictionary = {}):
 	
 	previous_state_path = previous_state
 	
+	if previous_state in ["FallState", "JumpState"]:
+		previous_state_path = "IdleState"
+	else:
+		previous_state_path = previous_state
+	
 	if player and player.bullets_remaining > 0:
 		player.is_shooting = true
 		player.animated_sprite.play("shoot")
 		
-		var bullet = BulletFactory.create_bullet("ProtagBullet")
+		var bullet = BulletFactory.create_bullet(BulletType.PROTAG_BULLET)
 		if bullet:
 			bullet.position = player.gun_marker.global_position
 			bullet.bullet_velocity = Vector2(1 if not player.animated_sprite.flip_h else -1, 0)
