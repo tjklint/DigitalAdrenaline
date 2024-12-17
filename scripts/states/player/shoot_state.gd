@@ -11,6 +11,11 @@ func enter(previous_state: String, data: Dictionary = {}):
 	
 	previous_state_path = previous_state
 	
+	if previous_state in ["FallState", "JumpState"]:
+		previous_state_path = "IdleState"
+	else:
+		previous_state_path = previous_state
+	
 	if player and player.bullets_remaining > 0:
 		player.is_shooting = true
 		player.animated_sprite.play("shoot")
