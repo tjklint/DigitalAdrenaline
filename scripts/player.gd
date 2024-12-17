@@ -7,7 +7,7 @@ class_name Player
 @export var PROTAG_BULLET = preload("res://scenes/ProtagBullet.tscn")
 @export var MAGAZINE_SIZE := 10
 
-@onready var hud = $Control
+@onready var manager: Node = %Manager
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gun_marker: Marker2D = $Node2D/GunMarker2D
 @onready var state_machine: StateMachine = $StateMachine
@@ -15,6 +15,7 @@ class_name Player
 var is_shooting = false
 var is_retrieving = false
 var bullets_remaining = MAGAZINE_SIZE
+const RESPAWN_POSITION = Vector2(30, -50)
 
 func _ready():
 	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
@@ -73,5 +74,17 @@ func _on_animation_finished():
 			is_shooting = false
 
 func die() -> void:
-	print("Player has died!")
-	get_tree().reload_current_scene()
+	print("Player has died! Playing death animation...")
+	animated_sprite.play("death")
+
+	manager.lose_life()
+	if manager.player_lives > 0:
+		_respawn()
+	else:
+		manager.show_game_over()
+		
+func _respawn():
+	print("Respawning player...")
+	global_position = RESPAWN_POSITION
+	velocity = Vector2.ZERO
+	animated_sprite.play("idle")  
