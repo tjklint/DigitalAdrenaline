@@ -18,7 +18,6 @@ var can_fire = true
 func _process(delta: float) -> void:
 	var can_move = true
 
-	# Edge detection
 	if direction == -1 and not ray_cast_left.is_colliding():
 		direction = 1
 		animated_sprite.flip_h = true
@@ -30,11 +29,9 @@ func _process(delta: float) -> void:
 		toggle_player_detectors()
 		can_move = false
 
-	# Movement
 	if can_move:
 		position.x += direction * ENEMY_SPEED * delta
 
-	# Fire bullets when player is detected
 	if can_fire and (player_detector_left.is_colliding() or player_detector_right.is_colliding()):
 		fire_bullet()
 
@@ -46,7 +43,6 @@ func fire_bullet():
 		bullet.bullet_velocity = Vector2(direction, 0)
 		get_tree().root.add_child(bullet)
 
-	# Timer for cooldown
 	var cooldown_timer = Timer.new()
 	cooldown_timer.wait_time = FIRE_COOLDOWN
 	cooldown_timer.one_shot = true

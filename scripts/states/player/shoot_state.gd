@@ -15,7 +15,6 @@ func enter(previous_state: String, data: Dictionary = {}):
 		player.is_shooting = true
 		player.animated_sprite.play("shoot")
 		
-		# Replace instantiation ONLY with the factory call
 		var bullet = BulletFactory.create_bullet("ProtagBullet")
 		if bullet:
 			bullet.position = player.gun_marker.global_position

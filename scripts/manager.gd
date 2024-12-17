@@ -36,7 +36,6 @@ func _update_gui():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	_save_progress()
-	get_tree().change_scene_to_file(next_level_path)
 
 func _save_progress():
 	var config = ConfigFile.new()
