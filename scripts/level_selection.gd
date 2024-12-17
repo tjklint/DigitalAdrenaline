@@ -19,8 +19,10 @@ func _process(delta: float) -> void:
 
 func _on_level_1_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level1.tscn")
-	pass 
-	
+	 
+
+func _on_level_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/level2.tscn")
 
 func _load_progress():
 	var config = ConfigFile.new()

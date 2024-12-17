@@ -37,6 +37,7 @@ offset_left = -13.0
 offset_top = -129.0
 offset_right = -13.0
 offset_bottom = -129.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Play" type="Button" parent="Camera2D/Control"]
 layout_mode = 2
@@ -47,6 +48,7 @@ offset_bottom = 180.0
 theme_override_fonts/font = ExtResource("4_dceeq")
 theme_override_font_sizes/font_size = 16
 text = "Play"
+metadata/_edit_use_anchors_ = true
 
 [node name="Exit" type="Button" parent="Camera2D/Control"]
 layout_mode = 0
@@ -57,6 +59,7 @@ offset_bottom = 233.0
 theme_override_fonts/font = ExtResource("4_dceeq")
 theme_override_font_sizes/font_size = 16
 text = "Exit"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Camera2D/Control"]
 layout_mode = 0
@@ -68,6 +71,7 @@ theme_override_colors/font_color = Color(0.563362, 0.538246, 0.540413, 1)
 theme_override_fonts/font = ExtResource("4_dceeq")
 theme_override_font_sizes/font_size = 48
 text = "DIGITAL"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Camera2D/Control"]
 layout_mode = 0
@@ -79,6 +83,7 @@ theme_override_colors/font_color = Color(0.365897, 0.562772, 1, 1)
 theme_override_fonts/font = ExtResource("4_dceeq")
 theme_override_font_sizes/font_size = 40
 text = "ADRENALINE"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Camera2D/Control/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Camera2D/Control/Exit" to="." method="_on_exit_pressed"]

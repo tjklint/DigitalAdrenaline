@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://djxt2b2tln4k5" path="res://scenes/killzone.tscn" id="5_ffkw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yndi"]
-size = Vector2(5, 5)
+size = Vector2(5, 4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t428b"]
 atlas = ExtResource("2_ovhne")
@@ -51,7 +51,7 @@ collision_layer = 8
 script = ExtResource("1_aubrd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_8yndi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

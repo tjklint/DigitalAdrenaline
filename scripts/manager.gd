@@ -32,9 +32,14 @@ func _update_gui():
 	bullets_label.text = str(bullets_remaining)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("Level Completed! Loading next level...")
-	_save_progress()
-	get_tree().change_scene_to_file(next_level_path)
+	if body.is_in_group("Player"):
+		if get_tree().current_scene.name == "Level2":
+			print("Level 2-specific logic triggered.")
+			# Add any special checks for Level 2 here
+
+		print("Level Completed! Loading next level...")
+		_save_progress()
+		get_tree().change_scene_to_file(next_level_path)
 
 func _save_progress():
 	var config = ConfigFile.new()

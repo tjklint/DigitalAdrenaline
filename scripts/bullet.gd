@@ -25,9 +25,7 @@ func _physics_process(delta: float) -> void:
 		var body = collision.get_collider()
 		if body is Enemy:
 			body.die()
-			queue_free()
 		elif body is Player:
-			body.die()
 			queue_free()
 	
 		if has_bounced:
